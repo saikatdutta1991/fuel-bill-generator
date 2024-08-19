@@ -18,7 +18,7 @@
         width: 240px;
         min-height: 768px;
         background-image: url(/assets/images/background-2.jpeg);
-        background-repeat: no-repeat;
+        background-repeat: round;
         position: relative;
         background-size: cover;
       }
@@ -44,7 +44,7 @@
 
       #pump-logo {
         text-align: center;
-        padding-top: 115px;
+        padding-top: 100px;
       }
 
       @font-face {
@@ -59,114 +59,169 @@
         font-family: Thermal-Receipt;
         padding: 10px;
       }
+
+      #welcome,
+      #footer {
+        text-align: center;
+        font-size: larger;
+      }
+
+      .line-item {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 5px;
+      }
+
+      .line-item > .separator {
+        flex: 0 0 10px;
+        text-align: center;
+      }
+
+      .line-item > .label {
+        flex: 0 0 100px;
+      }
+
+      .line-item > .content {
+        flex: 1;
+      }
+
+      #side-logo {
+        /* transform: rotate(270deg);
+        right: -70px;
+        width: 60%;
+        top: 25%;
+        position: absolute;
+        filter: grayscale(100%);
+        opacity: 0.35;
+        display: flex; */
+      }
     </style>
   </head>
   <body>
     <div id="container">
       <div id="template-container" class="zig-zag-top-bottom">
+        <div id="side-logo">
+          <img src="/assets//images/side-logo.webp" />
+        </div>
         <div id="pump-logo">
           <img src="/assets//images/pump-logo-indian-oil.webp" />
+          <!-- <img src="/assets//images/pump-logo-hp.webp" /> -->
         </div>
         <div id="template-content">
           <div id="welcome">Welcomes You</div>
-          <div id="address-block">
+          <div class="info-block">
             <span class="content"
               >GOKUL FUEL POINT YELANAHALLI, BEGUR 560068</span
             >
           </div>
           <div class="info-block">
             <div class="line-item" id="receiptNo">
-              <span class="label">Receipt No.</span> :
+              <span class="label">Receipt No.</span>
+              <span class="separator">:</span>
               <span class="content">0000000000</span>
             </div>
             <div class="line-item" id="localId">
-              <span class="label">Local ID</span> :
+              <span class="label">Local ID</span>
+              <span class="separator">:</span>
               <span class="content">0000000000</span>
             </div>
             <div class="line-item" id="fipNo">
-              <span class="label">FIP No.</span> :
+              <span class="label">FIP No.</span>
+              <span class="separator">:</span>
               <span class="content">1</span>
             </div>
             <div class="line-item" id="nozzelNo">
-              <span class="label">Nozzle No.</span> :
+              <span class="label">Nozzle No.</span>
+              <span class="separator">:</span>
               <span class="content">1</span>
             </div>
             <div class="line-item" id="product">
-              <span class="label">Product</span> :
+              <span class="label">Product</span>
+              <span class="separator">:</span>
               <span class="content">Petrol</span>
             </div>
           </div>
           <div class="info-block">
             <div class="line-item" id="presetType">
-              <span class="label">Preset Type</span> :
+              <span class="label">Preset Type</span>
+              <span class="separator">:</span>
               <span class="content">Amount</span>
             </div>
             <div class="line-item" id="rate">
-              <span class="label">Rate(Rs/L)</span> :
+              <span class="label">Rate(Rs/L)</span>
+              <span class="separator">:</span>
               <span class="content">101.94</span>
             </div>
             <div class="line-item" id="volume">
-              <span class="label">Volume(L)</span> :
+              <span class="label">Volume(L)</span>
+              <span class="separator">:</span>
               <span class="content">0001.96</span>
             </div>
             <div class="line-item" id="amount">
-              <span class="label">Amount(Rs)</span> :
+              <span class="label">Amount(Rs)</span>
+              <span class="separator">:</span>
               <span class="content">200.00</span>
             </div>
             <div class="line-item" id="atot">
-              <span class="label">Atot</span> :
+              <span class="label">Atot</span> <span class="separator">:</span>
               <span class="content">0000000000.000</span>
             </div>
             <div class="line-item" id="vtot">
-              <span class="label">Vtot</span> :
+              <span class="label">Vtot</span> <span class="separator">:</span>
               <span class="content">0000000000.000</span>
             </div>
           </div>
 
           <div class="info-block">
             <div class="line-item" id="vehicleNo">
-              <span class="label">Vehicle No</span> :
+              <span class="label">Vehicle No</span>
+              <span class="separator">:</span>
               <span class="content">Not Entered</span>
             </div>
             <div class="line-item" id="mobileNo">
-              <span class="label">Mobile No</span> :
+              <span class="label">Mobile No</span>
+              <span class="separator">:</span>
               <span class="content">Not Entered</span>
             </div>
           </div>
 
           <div class="info-block">
             <div class="line-item" id="date">
-              <span class="label">Date</span> :
+              <span class="label">Date</span> <span class="separator">:</span>
               <span class="content">00/00/00</span>
             </div>
             <div class="line-item" id="time">
-              <span class="label">Time</span> :
-              <span class="content">10:00</span>
+              <span class="label">Time</span> <span class="separator">:</span>
+              <span class="content">10<span class="separator">:</span>00</span>
             </div>
           </div>
           <div class="info-block">
             <div class="line-item" id="cstNo">
-              <span class="label">CST No</span> :
+              <span class="label">CST No</span> <span class="separator">:</span>
               <span class="content"></span>
             </div>
             <div class="line-item" id="lstNo">
-              <span class="label">LST No</span> :
+              <span class="label">LST No</span> <span class="separator">:</span>
               <span class="content"></span>
             </div>
             <div class="line-item" id="vatNo">
-              <span class="label">VAT No</span> :
+              <span class="label">VAT No</span> <span class="separator">:</span>
               <span class="content"></span>
             </div>
             <div class="line-item" id="attendantId">
-              <span class="label">ATTENDANT ID</span> :
+              <span class="label">ATTENDANT ID</span>
+              <span class="separator">:</span>
               <span class="content">Not Available</span>
             </div>
             <div class="line-item" id="fccDate">
-              <span class="label">FCC DATE</span> :
+              <span class="label">FCC DATE</span>
+              <span class="separator">:</span>
               <span class="content">Not Available</span>
             </div>
             <div class="line-item" id="fccTime">
-              <span class="label">FCC TIME</span> :
+              <span class="label">FCC TIME</span>
+              <span class="separator">:</span>
               <span class="content">Not Available</span>
             </div>
           </div>
