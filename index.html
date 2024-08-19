@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        width: 100vw;
+        height: 100vh;
+        background: grey;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #template-container {
+        width: 240px;
+        min-height: 768px;
+        background-image: url(/assets/images/background-2.jpeg);
+        background-repeat: no-repeat;
+        position: relative;
+        background-size: cover;
+      }
+
+      .zig-zag-top-bottom {
+        --m: conic-gradient(
+              from -45deg at bottom,
+              #0000,
+              #000 1deg 89deg,
+              #0000 90deg
+            )
+            bottom/5px 51% repeat-x,
+          conic-gradient(
+              from 135deg at top,
+              #0000,
+              #000 1deg 89deg,
+              #0000 90deg
+            )
+            top / 5px 51% repeat-x;
+        -webkit-mask: var(--m);
+        mask: var(--m);
+      }
+
+      #pump-logo {
+        text-align: center;
+        padding-top: 115px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="template-container" class="zig-zag-top-bottom">
+        <div id="pump-logo">
+          <img src="/assets//images/pump-logo-indian-oil.webp" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
