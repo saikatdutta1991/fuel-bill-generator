@@ -64,6 +64,7 @@
       #footer {
         text-align: center;
         font-size: larger;
+        opacity: 1;
       }
 
       .line-item {
@@ -97,6 +98,20 @@
         opacity: 0.35;
         display: flex; */
       }
+
+      .info-block {
+        margin-bottom: 20px;
+        opacity: 0.7;
+      }
+
+      .business-info {
+        opacity: 0.9;
+        letter-spacing: 0.5px;
+      }
+
+      #footer {
+        font-size: small;
+      }
     </style>
   </head>
   <body>
@@ -110,7 +125,7 @@
           <!-- <img src="/assets/images/pump-logo-hp.webp" /> -->
         </div>
         <div id="template-content">
-          <div id="welcome">Welcomes You</div>
+          <div id="welcome" class="info-block">Welcomes You</div>
           <div class="info-block">
             <span class="content"
               >GOKUL FUEL POINT YELANAHALLI, BEGUR 560068</span
@@ -197,7 +212,7 @@
               <span class="content">10<span class="separator">:</span>00</span>
             </div>
           </div>
-          <div class="info-block">
+          <div class="info-block business-info">
             <div class="line-item" id="cstNo">
               <span class="label">CST No</span> <span class="separator">:</span>
               <span class="content"></span>
