@@ -1,0 +1,74 @@
+.template-container {
+  width: 250px;
+  min-height: 768px;
+  background-image: url(/assets/images/background-2.jpeg);
+  background-repeat: round;
+  position: relative;
+  background-size: cover;
+}
+
+.zig-zag-top-bottom {
+  --m: conic-gradient(
+        from -45deg at bottom,
+        #0000,
+        #000 1deg 89deg,
+        #0000 90deg
+      )
+      bottom/5px 51% repeat-x,
+    conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) top /
+      5px 51% repeat-x;
+  -webkit-mask: var(--m);
+  mask: var(--m);
+}
+
+.pump-logo {
+  text-align: center;
+  padding-top: 100px;
+}
+
+.template-content {
+  font-family: Thermal-Receipt;
+  padding: 10px;
+}
+
+.welcome,
+.footer {
+  text-align: center;
+  font-size: larger;
+  opacity: 1;
+}
+
+.line-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.line-item > .separator {
+  flex: 0 0 10px;
+  text-align: center;
+}
+
+.line-item > .label {
+  flex: 0 0 100px;
+}
+
+.line-item > .data {
+  flex: 1;
+  margin-left: 5px;
+}
+
+.info-block {
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.business-info {
+  opacity: 0.9;
+  letter-spacing: 0.5px;
+}
+
+.footer {
+  font-size: small;
+}

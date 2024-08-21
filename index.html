@@ -3,247 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      #container {
-        width: 100vw;
-        height: 100vh;
-        background: grey;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      #template-container {
-        width: 240px;
-        min-height: 768px;
-        background-image: url(assets/images/background-2.jpeg);
-        background-repeat: round;
-        position: relative;
-        background-size: cover;
-      }
-
-      .zig-zag-top-bottom {
-        --m: conic-gradient(
-              from -45deg at bottom,
-              #0000,
-              #000 1deg 89deg,
-              #0000 90deg
-            )
-            bottom/5px 51% repeat-x,
-          conic-gradient(
-              from 135deg at top,
-              #0000,
-              #000 1deg 89deg,
-              #0000 90deg
-            )
-            top / 5px 51% repeat-x;
-        -webkit-mask: var(--m);
-        mask: var(--m);
-      }
-
-      #pump-logo {
-        text-align: center;
-        padding-top: 100px;
-      }
-
-      @font-face {
-        font-family: "Thermal-Receipt";
-        src: url("assets/fonts/thermal-receipt/thermal-receipt.ttf")
-          format("truetype");
-        font-weight: normal;
-        font-style: normal;
-      }
-
-      #template-content {
-        font-family: Thermal-Receipt;
-        padding: 10px;
-      }
-
-      #welcome,
-      #footer {
-        text-align: center;
-        font-size: larger;
-        opacity: 1;
-      }
-
-      .line-item {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        margin-bottom: 5px;
-      }
-
-      .line-item > .separator {
-        flex: 0 0 10px;
-        text-align: center;
-      }
-
-      .line-item > .label {
-        flex: 0 0 100px;
-      }
-
-      .line-item > .content {
-        flex: 1;
-        margin-left: 5px;
-      }
-
-      #side-logo {
-        /* transform: rotate(270deg);
-        right: -70px;
-        width: 60%;
-        top: 25%;
-        position: absolute;
-        filter: grayscale(100%);
-        opacity: 0.35;
-        display: flex; */
-      }
-
-      .info-block {
-        margin-bottom: 20px;
-        opacity: 0.7;
-      }
-
-      .business-info {
-        opacity: 0.9;
-        letter-spacing: 0.5px;
-      }
-
-      #footer {
-        font-size: small;
-      }
-    </style>
+    <title>Fuel Bill Generator</title>
+    <link rel="stylesheet" href="/assets/css/common.css" />
   </head>
   <body>
-    <div id="container">
-      <div id="template-container" class="zig-zag-top-bottom">
-        <!-- <div id="side-logo">
-          <img src="assets/images/side-logo.webp" />
-        </div> -->
-        <div id="pump-logo">
-          <img src="assets/images/pump-logo-indian-oil.webp" />
-          <!-- <img src="/assets/images/pump-logo-hp.webp" /> -->
-        </div>
-        <div id="template-content">
-          <div id="welcome" class="info-block">Welcomes You</div>
-          <div class="info-block">
-            <span class="content"
-              >GOKUL FUEL POINT YELANAHALLI, BEGUR 560068</span
-            >
-          </div>
-          <div class="info-block">
-            <div class="line-item" id="receiptNo">
-              <span class="label">Receipt No.</span>
-              <span class="separator">:</span>
-              <span class="content">0000000000</span>
-            </div>
-            <div class="line-item" id="localId">
-              <span class="label">Local ID</span>
-              <span class="separator">:</span>
-              <span class="content">0000000000</span>
-            </div>
-            <div class="line-item" id="fipNo">
-              <span class="label">FIP No.</span>
-              <span class="separator">:</span>
-              <span class="content">1</span>
-            </div>
-            <div class="line-item" id="nozzelNo">
-              <span class="label">Nozzle No.</span>
-              <span class="separator">:</span>
-              <span class="content">1</span>
-            </div>
-            <div class="line-item" id="product">
-              <span class="label">Product</span>
-              <span class="separator">:</span>
-              <span class="content">Petrol</span>
-            </div>
-          </div>
-          <div class="info-block">
-            <div class="line-item" id="presetType">
-              <span class="label">Preset Type</span>
-              <span class="separator">:</span>
-              <span class="content">Amount</span>
-            </div>
-            <div class="line-item" id="rate">
-              <span class="label">Rate(Rs/L)</span>
-              <span class="separator">:</span>
-              <span class="content">101.94</span>
-            </div>
-            <div class="line-item" id="volume">
-              <span class="label">Volume(L)</span>
-              <span class="separator">:</span>
-              <span class="content">0001.96</span>
-            </div>
-            <div class="line-item" id="amount">
-              <span class="label">Amount(Rs)</span>
-              <span class="separator">:</span>
-              <span class="content">200.00</span>
-            </div>
-            <div class="line-item" id="atot">
-              <span class="label">Atot</span> <span class="separator">:</span>
-              <span class="content">0000000000.000</span>
-            </div>
-            <div class="line-item" id="vtot">
-              <span class="label">Vtot</span> <span class="separator">:</span>
-              <span class="content">0000000000.000</span>
-            </div>
-          </div>
+    <div id="container"></div>
 
-          <div class="info-block">
-            <div class="line-item" id="vehicleNo">
-              <span class="label">Vehicle No</span>
-              <span class="separator">:</span>
-              <span class="content">Not Entered</span>
-            </div>
-            <div class="line-item" id="mobileNo">
-              <span class="label">Mobile No</span>
-              <span class="separator">:</span>
-              <span class="content">Not Entered</span>
-            </div>
-          </div>
+    <script>
+      // Function to load template content and inject into Shadow DOM
+      async function loadTemplate() {
+        // Fetch the template content
+        const response = await fetch("/templates/template-1/content.html");
+        const templateContent = await response.text();
 
-          <div class="info-block">
-            <div class="line-item" id="date">
-              <span class="label">Date</span> <span class="separator">:</span>
-              <span class="content">00/00/00</span>
-            </div>
-            <div class="line-item" id="time">
-              <span class="label">Time</span> <span class="separator">:</span>
-              <span class="content">10<span class="separator">:</span>00</span>
-            </div>
-          </div>
-          <div class="info-block business-info">
-            <div class="line-item" id="cstNo">
-              <span class="label">CST No</span> <span class="separator">:</span>
-              <span class="content"></span>
-            </div>
-            <div class="line-item" id="lstNo">
-              <span class="label">LST No</span> <span class="separator">:</span>
-              <span class="content"></span>
-            </div>
-            <div class="line-item" id="vatNo">
-              <span class="label">VAT No</span> <span class="separator">:</span>
-              <span class="content"></span>
-            </div>
-            <div class="line-item" id="attendantId">
-              <span class="label">ATTENDANT ID</span>
-              <span class="separator">:</span>
-              <span class="content">Not Available</span>
-            </div>
-            <div class="line-item" id="fccDate">
-              <span class="label">FCC DATE</span>
-              <span class="separator">:</span>
-              <span class="content">Not Available</span>
-            </div>
-            <div class="line-item" id="fccTime">
-              <span class="label">FCC TIME</span>
-              <span class="separator">:</span>
-              <span class="content">Not Available</span>
-            </div>
-          </div>
-          <div id="footer">Thanks You! Please Visit Again..</div>
-        </div>
-      </div>
-    </div>
+        // Create a shadow root in the target container
+        const container = document.getElementById("container");
+        const shadowRoot = container.attachShadow({ mode: "open" });
+
+        // Inject the template content into the shadow root
+        shadowRoot.innerHTML = templateContent;
+      }
+
+      // Load the template when the page loads
+      window.onload = loadTemplate;
+    </script>
   </body>
 </html>

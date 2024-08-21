@@ -1,0 +1,16 @@
+#container {
+  width: 100vw;
+  height: 100vh;
+  background: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@font-face {
+  font-family: "Thermal-Receipt";
+  src: url("/assets/fonts/thermal-receipt/thermal-receipt.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
