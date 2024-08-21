@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
@@ -27,7 +27,8 @@
                 ><input type="radio" name="template" checked />Template 1</label
               >
               <label class="radio-inline"
-                ><input type="radio" name="template" disabled />Coming Soon..</label
+                ><input type="radio" name="template" disabled />Coming
+                Soon..</label
               >
             </div>
           </div>
@@ -45,133 +46,94 @@
               >
             </div>
           </div>
-
-          <div class="panel panel-primary form-inline" id="data-panel">
+          <div class="panel panel-primary" id="data-panel">
             <div class="panel-heading">Enter Data</div>
             <div class="panel-body">
-              <div class="input-group">
-                <span class="input-group-addon">Address</span>
-                <input
-                  type="text"
-                  class="form-control input-sm"
-                  name="address"
-                />
+              <div class="form-group">
+                <label for="address">Address</label
+                ><input type="text" class="form-control" name="address" />
               </div>
-              <div class="input-group">
-                <span class="input-group-addon">Local ID</span>
-                <input
-                  type="text"
-                  class="form-control input-sm"
-                  name="localId"
-                />
-              </div>
-              <div class="input-group">
-                <span class="input-group-addon">FIP No</span>
-                <input type="text" class="form-control input-sm" name="fipNo" />
-              </div>
-              <div class="input-group">
-                <span class="input-group-addon">Nozzle No</span>
-                <input
-                  type="text"
-                  class="form-control input-sm"
-                  name="nozzelNo"
-                />
-              </div>
-              <div class="input-group">
-                <span class="input-group-addon">Product</span>
-                <input
-                  type="text"
-                  class="form-control input-sm"
-                  name="product"
-                />
-              </div>
-              <div class="input-group">
-                <span class="input-group-addon">Preset Type</span>
-                <input
-                  type="text"
-                  class="form-control input-sm"
-                  name="presetType"
-                />
-              </div>
-              <div class="input-group">
-                <span class="input-group-addon">Rate</span>
-                <input type="text" class="form-control input-sm" name="rate" />
-              </div>
-              <div class="input-group">
-                <span class="input-group-addon">Volume</span>
-                <input
-                  type="text"
-                  class="form-control input-sm"
-                  name="volume"
-                />
-              </div>
-              <div class="input-group">
-                <span class="input-group-addon">Atot</span>
-                <input type="text" class="form-control input-sm" name="atot" />
-              </div>
-              <div class="input-group">
-                <span class="input-group-addon">Vtot</span>
-                <input type="text" class="form-control input-sm" name="vtot" />
-              </div>
-              <div class="input-group">
-                <span class="input-group-addon">Vehicle No</span>
-                <input
-                  type="text"
-                  class="form-control input-sm"
-                  name="vehicleNo"
-                />
-              </div>
-              <div class="input-group">
-                <span class="input-group-addon">Mobile No</span>
-                <input
-                  type="text"
-                  class="form-control input-sm"
-                  name="mobileNo"
-                />
-              </div>
-              <div class="input-group">
-                <span class="input-group-addon">Date</span>
-                <input type="text" class="form-control input-sm" name="date" />
-              </div>
-              <div class="input-group">
-                <span class="input-group-addon">Time</span>
-                <input type="text" class="form-control input-sm" name="time" />
-              </div>
-              <div class="input-group">
-                <span class="input-group-addon">CST No</span>
-                <input type="text" class="form-control input-sm" name="cstNo" />
-              </div>
-              <div class="input-group">
-                <span class="input-group-addon">LST No</span>
-                <input type="text" class="form-control input-sm" name="lstNo" />
-              </div>
-              <div class="input-group">
-                <span class="input-group-addon">VAT No</span>
-                <input type="text" class="form-control input-sm" name="vatNo" />
-              </div>
-              <div class="input-group">
-                <span class="input-group-addon">Attendant ID</span>
-                <input
-                  type="text"
-                  class="form-control input-sm"
-                  name="attendantId"
-                />
-              </div>
-              <div class="input-group">
-                <span class="input-group-addon">FCC Date</span>
-                <input
-                  type="text"
-                  class="form-control input-sm"
-                  name="fccDate"
-                />
-              </div>
-              <div class="input-group">
-                <span class="input-group-addon">FCC Time</span>
-                <input
-                  type="text"
-                  class="form-control input-sm"
-                  name="fccTime"
-                />
+              <div class="row">
+                <div class="form-group col-md-4">
+                  <label for="receiptNo">Receipt No</label
+                  ><input type="text" class="form-control" name="receiptNo" />
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="localId">Local ID</label
+                  ><input type="text" class="form-control" name="localId" />
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="fipNo">FIP No</label
+                  ><input type="text" class="form-control" name="fipNo" />
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="nozzelNo">Nozzle No</label
+                  ><input type="text" class="form-control" name="nozzelNo" />
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="product">Product</label
+                  ><input type="text" class="form-control" name="product" />
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="presetType">Preset Type</label
+                  ><input type="text" class="form-control" name="presetType" />
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="rate">Rate</label
+                  ><input type="text" class="form-control" name="rate" />
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="volume">Volume</label
+                  ><input type="text" class="form-control" name="volume" />
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="atot">Atot</label
+                  ><input type="text" class="form-control" name="atot" />
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="vtot">Vtot</label
+                  ><input type="text" class="form-control" name="vtot" />
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="vehicleNo">Vehicle No</label
+                  ><input type="text" class="form-control" name="vehicleNo" />
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="mobileNo">Mobile No</label
+                  ><input type="text" class="form-control" name="mobileNo" />
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="date">Date</label
+                  ><input type="text" class="form-control" name="date" />
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="time">Time</label
+                  ><input type="text" class="form-control" name="time" />
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="cstNo">CST No</label
+                  ><input type="text" class="form-control" name="cstNo" />
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="lstNo">LST No</label
+                  ><input type="text" class="form-control" name="lstNo" />
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="vatNo">VAT No</label
+                  ><input type="text" class="form-control" name="vatNo" />
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="attendantId">Attendant ID</label
+                  ><input type="text" class="form-control" name="attendantId" />
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="fccDate">FCC Date</label
+                  ><input type="text" class="form-control" name="fccDate" />
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="fccTime">FCC Time</label
+                  ><input type="text" class="form-control" name="fccTime" />
+                </div>
               </div>
             </div>
           </div>
