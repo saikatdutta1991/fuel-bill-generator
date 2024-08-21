@@ -1,7 +1,7 @@
-#container {
-  width: 100vw;
-  height: 100vh;
+#template-container {
   background: grey;
+  padding-top: 25px;
+  padding-bottom: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,4 +13,8 @@
     format("truetype");
   font-weight: normal;
   font-style: normal;
+}
+
+#data-panel .input-group {
+  margin-bottom: 5px;
 }

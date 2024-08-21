@@ -1,20 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fuel Bill Generator</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/assets/css/common.css" />
   </head>
-  <body>
-    <div id="container"></div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="/templates/AbstractTemplate.js"></script>
-    <script src="/templates/template-1/Template1.js"></script>
+  <body class="bg-light">
+    <div class="container">
+      <div class="text-center">
+        <h2>Fuel Bill Generator</h2>
+        <p class="lead">Let's Generate. Fill in Your Information</p>
+      </div>
+      <div class="row">
+        <div class="col-md-8 order-md-1">
+          <div class="panel panel-primary">
+            <div class="panel-heading">Select Your Template</div>
+            <div class="panel-body">
+              <label class="radio-inline"
+                ><input type="radio" name="template" checked />Template 1</label
+              >
+              <label class="radio-inline"
+                ><input type="radio" name="template" disabled />Coming Soon..</label
+              >
+            </div>
+          </div>
+          <div class="panel panel-primary">
+            <div class="panel-heading">Select Pump</div>
+            <div class="panel-body">
+              <label class="radio-inline"
+                ><input type="radio" name="pump" checked />Indian Oil</label
+              >
+              <label class="radio-inline"
+                ><input type="radio" name="pump" />Hp</label
+              >
+              <label class="radio-inline"
+                ><input type="radio" name="pump" disabled />Custom</label
+              >
+            </div>
+          </div>
+
+          <div class="panel panel-primary form-inline" id="data-panel">
+            <div class="panel-heading">Enter Data</div>
+            <div class="panel-body">
+              <div class="input-group">
+                <span class="input-group-addon">Address</span>
+                <input
+                  type="text"
+                  class="form-control input-sm"
+                  name="address"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon">Local ID</span>
+                <input
+                  type="text"
+                  class="form-control input-sm"
+                  name="localId"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon">FIP No</span>
+                <input type="text" class="form-control input-sm" name="fipNo" />
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon">Nozzle No</span>
+                <input
+                  type="text"
+                  class="form-control input-sm"
+                  name="nozzelNo"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon">Product</span>
+                <input
+                  type="text"
+                  class="form-control input-sm"
+                  name="product"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon">Preset Type</span>
+                <input
+                  type="text"
+                  class="form-control input-sm"
+                  name="presetType"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon">Rate</span>
+                <input type="text" class="form-control input-sm" name="rate" />
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon">Volume</span>
+                <input
+                  type="text"
+                  class="form-control input-sm"
+                  name="volume"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon">Atot</span>
+                <input type="text" class="form-control input-sm" name="atot" />
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon">Vtot</span>
+                <input type="text" class="form-control input-sm" name="vtot" />
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon">Vehicle No</span>
+                <input
+                  type="text"
+                  class="form-control input-sm"
+                  name="vehicleNo"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon">Mobile No</span>
+                <input
+                  type="text"
+                  class="form-control input-sm"
+                  name="mobileNo"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon">Date</span>
+                <input type="text" class="form-control input-sm" name="date" />
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon">Time</span>
+                <input type="text" class="form-control input-sm" name="time" />
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon">CST No</span>
+                <input type="text" class="form-control input-sm" name="cstNo" />
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon">LST No</span>
+                <input type="text" class="form-control input-sm" name="lstNo" />
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon">VAT No</span>
+                <input type="text" class="form-control input-sm" name="vatNo" />
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon">Attendant ID</span>
+                <input
+                  type="text"
+                  class="form-control input-sm"
+                  name="attendantId"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon">FCC Date</span>
+                <input
+                  type="text"
+                  class="form-control input-sm"
+                  name="fccDate"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon">FCC Time</span>
+                <input
+                  type="text"
+                  class="form-control input-sm"
+                  name="fccTime"
+                />
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-default" disabled>
+            Load Last Saved Data
+          </button>
+          <button type="button" class="btn btn-default" disabled>
+            Load Default Data
+          </button>
+          <button type="button" class="btn btn-default">Generate</button>
+          <button type="button" class="btn btn-default" disabled>
+            Download
+          </button>
+          <!-- <button type="button" class="btn btn-primary">Primary</button>
+          <button type="button" class="btn btn-success">Success</button>
+          <button type="button" class="btn btn-info">Info</button>
+          <button type="button" class="btn btn-warning">Warning</button>
+          <button type="button" class="btn btn-danger">Danger</button>
+          <button type="button" class="btn btn-link">Link</button> -->
+        </div>
+        <div class="col-md-4" id="template-container"></div>
+      </div>
+    </div>
+
+    <script src="/assets/js/common.js"></script>
+    <script src="templates/AbstractTemplate.js"></script>
+    <script src="templates/templates.js"></script>
+    <script src="templates/template-1/Template1.js"></script>
     <script>
-      // Load the template when the page loads
-      // window.onload = loadTemplate;
+      window.onload = () => {
+        const template = new Template1("template-container");
+        template.render();
+        // template.renderData({});
+      };
     </script>
   </body>
 </html>

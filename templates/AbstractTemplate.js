@@ -1,7 +1,7 @@
 class AbstractTemplate {
   constructor(containerElemId) {
     this.container = document.getElementById(containerElemId);
-    this.shadowRoot = container.attachShadow({ mode: "open" });
+    this.shadowRoot = this.container.attachShadow({ mode: "open" });
   }
 
   async render() {
