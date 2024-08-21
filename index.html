@@ -9,23 +9,11 @@
   <body>
     <div id="container"></div>
 
+    <script src="/templates/AbstractTemplate.js"></script>
+    <script src="/templates/template-1/Template1.js"></script>
     <script>
-      // Function to load template content and inject into Shadow DOM
-      async function loadTemplate() {
-        // Fetch the template content
-        const response = await fetch("/templates/template-1/content.html");
-        const templateContent = await response.text();
-
-        // Create a shadow root in the target container
-        const container = document.getElementById("container");
-        const shadowRoot = container.attachShadow({ mode: "open" });
-
-        // Inject the template content into the shadow root
-        shadowRoot.innerHTML = templateContent;
-      }
-
       // Load the template when the page loads
-      window.onload = loadTemplate;
+      // window.onload = loadTemplate;
     </script>
   </body>
 </html>
