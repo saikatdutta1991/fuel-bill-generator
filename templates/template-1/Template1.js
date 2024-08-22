@@ -3,12 +3,6 @@ class Template1 extends AbstractTemplate {
     super(containerElemId);
     this.contentUri = "/templates/template-1/content.html";
     this.rootElem = $(this.shadowRoot);
-    this.rendered = false;
-  }
-
-  render() {
-    super.render();
-    this.rendered = true;
   }
 
   renderData(data) {
@@ -24,10 +18,6 @@ class Template1 extends AbstractTemplate {
       console.log(`Rendering data ${field} with ${value}`);
       this.setField(field, value);
     });
-  }
-
-  setField(field, data) {
-    this.rootElem.find(`.template-content #${field} .data`).text(data);
   }
 
   getFields() {
