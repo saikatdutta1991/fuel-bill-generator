@@ -15,9 +15,13 @@ class Template1 extends AbstractTemplate {
     const fields = this.getFields();
     fields.forEach((field) => {
       const value = data[field] || "";
-      console.log(`Rendering data ${field} with ${value}`);
-      this.setField(field, value);
+      this.rootElem.find(`#${field} .data`).text(value);
     });
+
+    if (data["pumpLogo"]) {
+      console.log(fields["pumpLogo"]);
+      this.rootElem.find(`#pumpLogo`).attr("src", data["pumpLogo"]);
+    }
   }
 
   getFields() {
@@ -31,6 +35,7 @@ class Template1 extends AbstractTemplate {
       "presetType",
       "rate",
       "volume",
+      "amount",
       "atot",
       "vtot",
       "vehicleNo",

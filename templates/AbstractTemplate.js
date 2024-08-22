@@ -11,8 +11,4 @@ class AbstractTemplate {
     this.shadowRoot.innerHTML = templateContent;
     this.rendered = true;
   }
-
-  setField(field, data) {
-    this.rootElem.find(`#${field} .data`).text(data);
-  }
 }
