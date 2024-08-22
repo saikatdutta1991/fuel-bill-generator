@@ -7,11 +7,8 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
     />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/assets/css/common.css" />
   </head>
-
   <body class="bg-light">
     <div class="container">
       <div class="text-center">
@@ -75,22 +72,21 @@
           </button>
         </div>
         <div class="col-md-4">
-          <span id="template-container"></span>
-          <br />
-          <label for="percentage-slider">Zoom:</label>
           <input
             type="range"
-            class="form-control"
+            class="slider"
             id="percentage-slider"
             min="0"
             max="100"
             value="100"
           />
-          <span id="slider-value">100%</span>
+          <span id="template-container"></span>
         </div>
       </div>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="/assets//js/field.js"></script>
     <script src="/assets/js/common.js"></script>
     <script src="templates/AbstractTemplate.js"></script>
@@ -119,6 +115,16 @@
         addInputFieldElements("#section-3 > .panel-body > .row", fields);
         loadDefaultData("#section-3", fields);
         generate(template);
+
+        initZoomSlider();
+      }
+
+      function initZoomSlider() {
+        $("#percentage-slider").on("input", function () {
+          var value = $(this).val();
+          $("#slider-value").text(value + "%");
+          $("#template-container").css("zoom", `${value}%`);
+        });
       }
     </script>
   </body>
