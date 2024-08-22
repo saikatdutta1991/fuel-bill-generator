@@ -9,7 +9,7 @@
 
 @font-face {
   font-family: "Thermal-Receipt";
-  src: url("/assets/fonts/thermal-receipt/thermal-receipt.ttf")
+  src: url("assets/fonts/thermal-receipt/thermal-receipt.ttf")
     format("truetype");
   font-weight: normal;
   font-style: normal;
