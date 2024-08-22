@@ -64,15 +64,30 @@
           <button type="button" class="btn btn-default" disabled>
             Load Last Saved Data
           </button>
-          <button type="button" class="btn btn-default" disabled>
-            Load Default Data
+          <button type="button" class="btn btn-default" id="loadDefaultData">
+            Reset
           </button>
-          <button type="button" class="btn btn-default">Generate</button>
+          <button type="button" class="btn btn-default" id="generate">
+            Generate
+          </button>
           <button type="button" class="btn btn-default" disabled>
             Download
           </button>
         </div>
-        <div class="col-md-4" id="template-container"></div>
+        <div class="col-md-4">
+          <span id="template-container"></span>
+          <br />
+          <label for="percentage-slider">Zoom:</label>
+          <input
+            type="range"
+            class="form-control"
+            id="percentage-slider"
+            min="0"
+            max="100"
+            value="100"
+          />
+          <span id="slider-value">100%</span>
+        </div>
       </div>
     </div>
 
@@ -83,12 +98,28 @@
     <script>
       const templates = [new Template1("template-container")];
       const templateIndex = 0;
+      const template = templates[templateIndex];
 
-      window.onload = () => {
+      $(document).ready(async function () {
+        await onInit();
+
+        $("#loadDefaultData").on("click", function () {
+          loadDefaultData("#section-3", fields);
+          generate(template);
+        });
+
+        $("#generate").on("click", function () {
+          generate(template);
+        });
+      });
+
+      async function onInit() {
+        await template.render();
+
         addInputFieldElements("#section-3 > .panel-body > .row", fields);
         loadDefaultData("#section-3", fields);
-        generate(templates[templateIndex]);
-      };
+        generate(template);
+      }
     </script>
   </body>
 </html>

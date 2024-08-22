@@ -19,7 +19,6 @@ class Template1 extends AbstractTemplate {
     });
 
     if (data["pumpLogo"]) {
-      console.log(fields["pumpLogo"]);
       this.rootElem.find(`#pumpLogo`).attr("src", data["pumpLogo"]);
     }
   }

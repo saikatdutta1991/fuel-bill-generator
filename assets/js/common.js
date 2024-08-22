@@ -1,10 +1,7 @@
-async function generate(template) {
+function generate(template) {
   const data = getDataValues("#section-3");
-
   const pumpLogo = getRadioValue("#section-2", "pumpLogo");
   data["pumpLogo"] = pumpLogo;
-
-  await template.render();
   template.renderData(data);
 }
 
