@@ -61,6 +61,39 @@
             </div>
           </div>
           <div class="panel panel-primary" id="section-3">
+            <div class="panel-heading">Tax Details</div>
+            <div class="panel-body">
+              <label class="checkbox-inline"
+                ><input type="checkbox" name="showGST" value="true" />GSTIN
+                No.</label
+              >
+              <label class="checkbox-inline"
+                ><input
+                  type="checkbox"
+                  name="showCST"
+                  value="true"
+                  checked
+                />CST No</label
+              >
+              <label class="checkbox-inline"
+                ><input
+                  type="checkbox"
+                  name="showLST"
+                  value="true"
+                  checked
+                />LST No</label
+              >
+              <label class="checkbox-inline"
+                ><input
+                  type="checkbox"
+                  name="showVAT"
+                  value="true"
+                  checked
+                />VAT No</label
+              >
+            </div>
+          </div>
+          <div class="panel panel-primary" id="section-4">
             <div class="panel-heading">Enter Data</div>
             <div class="panel-body">
               <div class="row"></div>
@@ -107,7 +140,7 @@
         await onInit();
 
         $("#loadDefaultData").on("click", function () {
-          loadDefaultData("#section-3", fields);
+          loadDefaultData("#section-4", fields);
           generate(template);
         });
 
@@ -119,8 +152,8 @@
       async function onInit() {
         await template.render();
 
-        addInputFieldElements("#section-3 > .panel-body > .row", fields);
-        loadDefaultData("#section-3", fields);
+        addInputFieldElements("#section-4 > .panel-body > .row", fields);
+        loadDefaultData("#section-4", fields);
         generate(template);
 
         initZoomSlider();

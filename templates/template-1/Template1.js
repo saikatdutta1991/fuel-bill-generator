@@ -21,6 +21,22 @@ class Template1 extends AbstractTemplate {
     if (data["pumpLogo"]) {
       this.rootElem.find(`#pumpLogo`).attr("src", data["pumpLogo"]);
     }
+
+    data["showGST"]
+      ? this.rootElem.find(`#gstNo`).show()
+      : this.rootElem.find(`#gstNo`).hide();
+
+    data["showCST"]
+      ? this.rootElem.find(`#cstNo`).show()
+      : this.rootElem.find(`#cstNo`).hide();
+
+    data["showLST"]
+      ? this.rootElem.find(`#lstNo`).show()
+      : this.rootElem.find(`#lstNo`).hide();
+
+    data["showVAT"]
+      ? this.rootElem.find(`#vatNo`).show()
+      : this.rootElem.find(`#vatNo`).hide();
   }
 
   getFields() {
@@ -44,6 +60,7 @@ class Template1 extends AbstractTemplate {
       "cstNo",
       "lstNo",
       "vatNo",
+      "gstNo",
       "attendantId",
       "fccDate",
       "fccTime",

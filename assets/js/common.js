@@ -1,7 +1,13 @@
 function generate(template) {
-  const data = getDataValues("#section-3");
+  const data = getDataValues("#section-4");
   const pumpLogo = getRadioValue("#section-2", "pumpLogo");
   data["pumpLogo"] = pumpLogo;
+
+  data["showGST"] = isChecked("#section-3", "showGST", "true");
+  data["showLST"] = isChecked("#section-3", "showLST", "true");
+  data["showVAT"] = isChecked("#section-3", "showVAT", "true");
+  data["showCST"] = isChecked("#section-3", "showCST", "true");
+
   template.renderData(data);
 }
 
@@ -27,6 +33,12 @@ function loadDefaultData(element, fields) {
 
 function getRadioValue(element, inputName) {
   return $(element).find(`input[name="${inputName}"]:checked`).val();
+}
+
+function isChecked(element, inputName, compareStr) {
+  return (
+    $(element).find(`input[name="${inputName}"]:checked`).val() == compareStr
+  );
 }
 
 function getDataValues(element) {

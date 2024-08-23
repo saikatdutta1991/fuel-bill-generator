@@ -95,6 +95,11 @@ const fields = [
     value: "",
   },
   {
+    id: "gstNo",
+    name: "GSTIN",
+    value: "",
+  },
+  {
     id: "attendantId",
     name: "Attendant ID",
     value: "Not Available",
