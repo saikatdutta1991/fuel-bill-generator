@@ -1,5 +1,10 @@
 const fields = [
   {
+    id: "name",
+    name: "Name",
+    value: "VENKATESWARA AND CO.",
+  },
+  {
     id: "address",
     name: "Address",
     value: "GOKUL FUEL POINT YELANAHALLI, BEGUR 560068",
