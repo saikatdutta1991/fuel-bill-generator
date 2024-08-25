@@ -22,23 +22,23 @@
             <div class="panel-heading">Select Your Template</div>
             <div class="panel-body">
               <label class="radio-inline"
-                ><input type="radio" name="template" value="0" />Template
-                1</label
-              >
-              <label class="radio-inline"
                 ><input
                   type="radio"
                   name="template"
-                  value="1"
+                  value="0"
                   checked
-                />Template 2</label
+                />Template 1</label
+              >
+              <label class="radio-inline"
+                ><input type="radio" name="template" value="1" />Template
+                2</label
               >
             </div>
           </div>
-          <div class="panel panel-primary" id="section-5">
+          <div class="panel panel-primary" id="section-paper-texture">
             <div class="panel-heading">Select Paper Texture</div>
             <div class="panel-body">
-              <label class="radio-inline"
+              <!-- <label class="radio-inline"
                 ><input
                   type="radio"
                   name="texture"
@@ -52,13 +52,13 @@
                   checked
                   value="assets/images/textures/texture-2.jpeg"
                 />Texture 2</label
-              >
+              > -->
             </div>
           </div>
-          <div class="panel panel-primary" id="section-2">
+          <div class="panel panel-primary" id="section-pump-logo">
             <div class="panel-heading">Select Pump Logo</div>
             <div class="panel-body">
-              <label class="radio-inline"
+              <!-- <label class="radio-inline"
                 ><input
                   type="radio"
                   name="pumpLogo"
@@ -82,13 +82,13 @@
               >
               <label class="radio-inline"
                 ><input type="radio" name="pumpLogo" disabled />Custom</label
-              >
+              > -->
             </div>
           </div>
-          <div class="panel panel-primary" id="section-3">
-            <div class="panel-heading">Show-Hide</div>
+          <div class="panel panel-primary" id="section-optional-fields">
+            <div class="panel-heading">Optinal Fields</div>
             <div class="panel-body">
-              <label class="checkbox-inline"
+              <!-- <label class="checkbox-inline"
                 ><input type="checkbox" name="showGST" value="true" />GSTIN
                 No.</label
               >
@@ -115,10 +115,10 @@
                   value="true"
                   checked
                 />VAT No</label
-              >
+              > -->
             </div>
           </div>
-          <div class="panel panel-primary" id="section-4">
+          <div class="panel panel-primary" id="section-data">
             <div class="panel-heading">Enter Data</div>
             <div class="panel-body">
               <div class="row"></div>
@@ -152,7 +152,6 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="assets//js/field.js"></script>
     <script src="assets/js/common.js"></script>
     <script src="templates/AbstractTemplate.js"></script>
     <script src="templates/template-1/Template1.js"></script>
@@ -168,9 +167,8 @@
       $(document).ready(async function () {
         await onInit();
 
-        $("#loadDefaultData").on("click", function () {
-          loadDefaultData("#section-4", fields);
-          generate(template);
+        $("#loadDefaultData").on("click", async function () {
+          await onTemplateSelected();
         });
 
         $("#generate").on("click", function () {
@@ -179,36 +177,12 @@
 
         $("input[name=template]").change(async function () {
           await onTemplateSelected();
-          generate(template);
-        });
-
-        $("input[name=texture]").change(function () {
-          generate(template);
         });
       });
 
       async function onInit() {
         await onTemplateSelected();
-
-        addInputFieldElements("#section-4 > .panel-body > .row", fields);
-        loadDefaultData("#section-4", fields);
-        generate(template);
-
         initZoomSlider();
-      }
-
-      async function onTemplateSelected() {
-        templateIndex = Number($("input[name=template]:checked").val());
-        template = templates[templateIndex];
-        await template.render();
-      }
-
-      function initZoomSlider() {
-        $("#percentage-slider").on("input", function () {
-          var value = $(this).val();
-          $("#slider-value").text(value + "%");
-          $("#template-container").css("zoom", `${value}%`);
-        });
       }
     </script>
   </body>

@@ -6,70 +6,231 @@ class Template1 extends AbstractTemplate {
 
   renderData(data) {
     if (!this.rendered) {
-      console.log("Render the Template first");
-      return;
+      throw Error("Render the Template first");
     }
 
     // Render data
-    const fields = this.getFields();
-    fields.forEach((field) => {
-      const value = data[field] || "";
-      this.rootElem.find(`#${field} .data`).text(value);
-    });
-
-    if (data["pumpLogo"]) {
-      this.rootElem.find(`#pumpLogo`).attr("src", data["pumpLogo"]);
+    const fieldList = this.getConfig().fieldList || [];
+    if (fieldList.length > 0) {
+      fieldList.forEach((field) => {
+        const value = data[field.id] || "";
+        this.rootElem.find(`#${field.id} .data`).text(value);
+      });
     }
 
-    if (data["texture"]) {
-      console.log(data["texture"]);
-      this.rootElem
-        .find(`.template-container`)
-        .css("background-image", `url(${data["texture"]})`);
+    const pumpLogoList = this.getConfig().pumpLogoList || [];
+    if (pumpLogoList.length > 0) {
+      pumpLogoList.forEach((field) => {
+        const value = data[field.id] || "";
+        if (value) {
+          this.rootElem.find(`#pumpLogo`).attr("src", value);
+        }
+      });
     }
 
-    data["showGST"]
-      ? this.rootElem.find(`#gstNo`).show()
-      : this.rootElem.find(`#gstNo`).hide();
+    const paperTextureList = this.getConfig().paperTextureList || [];
+    if (paperTextureList.length > 0) {
+      paperTextureList.forEach((field) => {
+        const value = data[field.id] || "";
+        if (value) {
+          this.rootElem
+            .find(`.template-container`)
+            .css("background-image", `url('${value}')`);
+        }
+      });
+    }
 
-    data["showCST"]
-      ? this.rootElem.find(`#cstNo`).show()
-      : this.rootElem.find(`#cstNo`).hide();
-
-    data["showLST"]
-      ? this.rootElem.find(`#lstNo`).show()
-      : this.rootElem.find(`#lstNo`).hide();
-
-    data["showVAT"]
-      ? this.rootElem.find(`#vatNo`).show()
-      : this.rootElem.find(`#vatNo`).hide();
+    const optionalFieldList = this.getConfig().optionalFieldList || [];
+    if (optionalFieldList.length > 0) {
+      optionalFieldList.forEach((field) => {
+        const value = data[field.id];
+        value
+          ? this.rootElem.find(`#${field.refId}`).show()
+          : this.rootElem.find(`#${field.refId}`).hide();
+      });
+    }
   }
 
-  getFields() {
-    return [
-      "address",
-      "receiptNo",
-      "localId",
-      "fipNo",
-      "nozzelNo",
-      "product",
-      "presetType",
-      "rate",
-      "volume",
-      "amount",
-      "atot",
-      "vtot",
-      "vehicleNo",
-      "mobileNo",
-      "date",
-      "time",
-      "cstNo",
-      "lstNo",
-      "vatNo",
-      "gstNo",
-      "attendantId",
-      "fccDate",
-      "fccTime",
-    ];
+  getConfig() {
+    return {
+      optionalFieldList: [
+        {
+          id: "showGST",
+          name: "GSTIN No.",
+          refId: "gstNo",
+          value: "true",
+          checked: false,
+        },
+        {
+          id: "showCST",
+          name: "CST No",
+          refId: "cstNo",
+          value: "true",
+          checked: true,
+        },
+        {
+          id: "showLST",
+          name: "LST No",
+          refId: "lstNo",
+          value: "true",
+          checked: true,
+        },
+        {
+          id: "showVAT",
+          name: "VAT No",
+          refId: "vatNo",
+          value: "true",
+          checked: true,
+        },
+      ],
+      pumpLogoList: [
+        {
+          id: "pumpLogo",
+          name: "Indian Oil",
+          uri: "assets/images/pump-logo-indian-oil.webp",
+          default: true,
+        },
+        {
+          id: "pumpLogo",
+          name: "Hp Oil",
+          uri: "assets/images/pump-logo-hp.webp",
+        },
+        {
+          id: "pumpLogo",
+          name: "Bharat Petroleum",
+          uri: "assets/images/pump-logo-bharat-petroleum.webp",
+        },
+      ],
+      paperTextureList: [
+        {
+          id: "texture",
+          name: "Texture 1",
+          uri: "assets/images/textures/texture-1.jpeg",
+          default: true,
+        },
+        {
+          id: "texture",
+          name: "Texture 2",
+          uri: "assets/images/textures/texture-2.jpeg",
+        },
+      ],
+      fieldList: [
+        {
+          id: "address",
+          name: "Address",
+          defaultValue: "GOKUL FUEL POINT YELANAHALLI, BEGUR 560068",
+        },
+        {
+          id: "receiptNo",
+          name: "Receipt No",
+          defaultValue: "0000000000",
+        },
+        {
+          id: "localId",
+          name: "Local ID",
+          defaultValue: "0000000000",
+        },
+        {
+          id: "fipNo",
+          name: "FIP No",
+          defaultValue: "1",
+        },
+        {
+          id: "nozzelNo",
+          name: "Nozzle No",
+          defaultValue: "1",
+        },
+        {
+          id: "product",
+          name: "Product",
+          defaultValue: "Petrol",
+        },
+        {
+          id: "presetType",
+          name: "PresetType",
+          defaultValue: "Amount",
+        },
+        {
+          id: "rate",
+          name: "Rate",
+          defaultValue: "101.94",
+        },
+        {
+          id: "volume",
+          name: "Volume",
+          defaultValue: "0001.96",
+        },
+        {
+          id: "amount",
+          name: "Amount",
+          defaultValue: "200.006",
+        },
+        {
+          id: "atot",
+          name: "Atot",
+          defaultValue: "0000000000.000",
+        },
+        {
+          id: "vtot",
+          name: "Vtot",
+          defaultValue: "0000000000.000",
+        },
+        {
+          id: "vehicleNo",
+          name: "Vehicle No",
+          defaultValue: "Not Entered",
+        },
+        {
+          id: "mobileNo",
+          name: "Mobile No",
+          defaultValue: "Not Entered",
+        },
+        {
+          id: "date",
+          name: "Date",
+          defaultValue: "00/00/00",
+        },
+        {
+          id: "time",
+          name: "Time",
+          defaultValue: "10:00",
+        },
+        {
+          id: "cstNo",
+          name: "CST No",
+          defaultValue: "",
+        },
+        {
+          id: "lstNo",
+          name: "LST No",
+          defaultValue: "",
+        },
+        {
+          id: "vatNo",
+          name: "VAT No",
+          defaultValue: "",
+        },
+        {
+          id: "gstNo",
+          name: "GSTIN",
+          defaultValue: "",
+        },
+        {
+          id: "attendantId",
+          name: "Attendant ID",
+          defaultValue: "Not Available",
+        },
+        {
+          id: "fccDate",
+          name: "FCC Date",
+          defaultValue: "Not Available",
+        },
+        {
+          id: "fccTime",
+          name: "FCC Time",
+          defaultValue: "Not Available",
+        },
+      ],
+    };
   }
 }
