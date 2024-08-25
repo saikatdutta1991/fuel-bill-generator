@@ -108,11 +108,6 @@ class Template1 extends AbstractTemplate {
           uri: "assets/images/textures/texture-1.jpeg",
           default: true,
         },
-        {
-          id: "texture",
-          name: "Texture 2",
-          uri: "assets/images/textures/texture-2.jpeg",
-        },
       ],
       fieldList: [
         {

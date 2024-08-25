@@ -2,25 +2,25 @@
 <div id="template-2" class="template-container zig-zag-top-bottom">
   <div class="template-content">
     <div class="header">TAX INVOICE</div>
-    <div class="header">VENKATESWARA AND CO.</div>
-    <div class="sub-header">DEALERS IN BHARAT PETROLEUM CORP LTD</div>
-    <div class="sub-header">HOSUR MAIN ROAD MADIWALA BLR-68</div>
-    <div class="sub-header">GSTIN NO XXXXXXXXXXX</div>
+    <div class="header" id="name"><span class="data"></span></div>
+    <div class="sub-header" id="subName"><span class="data"></span></div>
+    <div class="sub-header" id="address"><span class="data"></span></div>
+    <div class="sub-header" id="gstNo">GSTIN NO <span class="data"></span></div>
     <table>
       <tr>
         <td></td>
         <td></td>
         <td><span class="label">DATE:</span></td>
-        <td><span class="data">21/08/24</span></td>
+        <td id="date"><span class="data"></span></td>
       </tr>
       <tr>
-        <td>
+        <td id="billNo">
           <span class="label">BILL NO:</span>
-          <span class="data">49121</span>
+          <span class="data"></span>
         </td>
         <td></td>
         <td><span class="label">TIME:</span></td>
-        <td><span class="data">16:35</span></td>
+        <td id="time"><span class="data"></span></td>
       </tr>
       <tr>
         <td>
@@ -48,10 +48,10 @@
         </td>
       </tr>
       <tr>
-        <td><span class="data">PETROL</span></td>
-        <td><span class="data">1.944Lt</span></td>
-        <td><span class="data">102.90</span></td>
-        <td><span class="data">200.00</span></td>
+        <td id="product"><span class="data"></span></td>
+        <td id="volume"><span class="data"></span></td>
+        <td id="rate"><span class="data"></span></td>
+        <td id="amount"><span class="data"></span></td>
       </tr>
       <tr>
         <td colspan="4">
@@ -60,9 +60,13 @@
       </tr>
       <tr>
         <td><span class="label">TOTAL ITEM(S):1</span></td>
-        <td><span class="label">/QTY:</span><span>1.944</span></td>
+        <td id="volume">
+          <span class="label">/QTY:</span><span class="data"></span>
+        </td>
         <td><span class="label"></span></td>
-        <td><span class="label"></span><span>200.00</span></td>
+        <td id="amount">
+          <span class="label"></span><span class="data"></span>
+        </td>
       </tr>
       <tr>
         <td colspan="4">
@@ -73,7 +77,7 @@
         <td><span class="label">TOTAL:</span></td>
         <td><span class="label"></span></td>
         <td><span class="label"></span></td>
-        <td>₹ <span class="data">200.00</span></td>
+        <td id="amount">₹ <span class="data"></span></td>
       </tr>
       <tr>
         <td colspan="4">
