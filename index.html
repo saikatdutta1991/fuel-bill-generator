@@ -35,6 +35,26 @@
               >
             </div>
           </div>
+          <div class="panel panel-primary" id="section-5">
+            <div class="panel-heading">Select Paper Texture</div>
+            <div class="panel-body">
+              <label class="radio-inline"
+                ><input
+                  type="radio"
+                  name="texture"
+                  value="assets/images/textures/texture-1.jpeg"
+                />Texture 1</label
+              >
+              <label class="radio-inline"
+                ><input
+                  type="radio"
+                  name="texture"
+                  checked
+                  value="assets/images/textures/texture-2.jpeg"
+                />Texture 2</label
+              >
+            </div>
+          </div>
           <div class="panel panel-primary" id="section-2">
             <div class="panel-heading">Select Pump Logo</div>
             <div class="panel-body">
@@ -159,6 +179,10 @@
 
         $("input[name=template]").change(async function () {
           await onTemplateSelected();
+          generate(template);
+        });
+
+        $("input[name=texture]").change(function () {
           generate(template);
         });
       });

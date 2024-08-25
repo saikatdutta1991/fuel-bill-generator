@@ -21,6 +21,13 @@ class Template1 extends AbstractTemplate {
       this.rootElem.find(`#pumpLogo`).attr("src", data["pumpLogo"]);
     }
 
+    if (data["texture"]) {
+      console.log(data["texture"]);
+      this.rootElem
+        .find(`.template-container`)
+        .css("background-image", `url(${data["texture"]})`);
+    }
+
     data["showGST"]
       ? this.rootElem.find(`#gstNo`).show()
       : this.rootElem.find(`#gstNo`).hide();

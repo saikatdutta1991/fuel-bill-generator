@@ -1,7 +1,7 @@
 .template-container {
   width: 250px;
   min-height: 768px;
-  background-image: url(../../assets/images/background-2.jpeg);
+  background-image: url(../../assets/images/textures/texture-1.jpeg);
   background-repeat: round;
   position: relative;
   background-size: cover;

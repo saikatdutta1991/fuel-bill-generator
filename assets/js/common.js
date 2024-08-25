@@ -3,6 +3,9 @@ function generate(template) {
   const pumpLogo = getRadioValue("#section-2", "pumpLogo");
   data["pumpLogo"] = pumpLogo;
 
+  const texture = getRadioValue("#section-5", "texture");
+  data["texture"] = texture;
+
   data["showGST"] = isChecked("#section-3", "showGST", "true");
   data["showLST"] = isChecked("#section-3", "showLST", "true");
   data["showVAT"] = isChecked("#section-3", "showVAT", "true");
