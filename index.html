@@ -22,11 +22,16 @@
             <div class="panel-heading">Select Your Template</div>
             <div class="panel-body">
               <label class="radio-inline"
-                ><input type="radio" name="template" checked />Template 1</label
+                ><input type="radio" name="template" value="0" />Template
+                1</label
               >
               <label class="radio-inline"
-                ><input type="radio" name="template" disabled />Coming
-                Soon..</label
+                ><input
+                  type="radio"
+                  name="template"
+                  value="1"
+                  checked
+                />Template 2</label
               >
             </div>
           </div>
@@ -131,10 +136,14 @@
     <script src="assets/js/common.js"></script>
     <script src="templates/AbstractTemplate.js"></script>
     <script src="templates/template-1/Template1.js"></script>
+    <script src="templates/template-2/Template2.js"></script>
     <script>
-      const templates = [new Template1("template-container")];
-      const templateIndex = 0;
-      const template = templates[templateIndex];
+      const templates = [
+        new Template1("template-container"),
+        new Template2("template-container"),
+      ];
+      var templateIndex;
+      var template;
 
       $(document).ready(async function () {
         await onInit();
@@ -147,16 +156,27 @@
         $("#generate").on("click", function () {
           generate(template);
         });
+
+        $("input[name=template]").change(async function () {
+          await onTemplateSelected();
+          generate(template);
+        });
       });
 
       async function onInit() {
-        await template.render();
+        await onTemplateSelected();
 
         addInputFieldElements("#section-4 > .panel-body > .row", fields);
         loadDefaultData("#section-4", fields);
         generate(template);
 
         initZoomSlider();
+      }
+
+      async function onTemplateSelected() {
+        templateIndex = Number($("input[name=template]:checked").val());
+        template = templates[templateIndex];
+        await template.render();
       }
 
       function initZoomSlider() {
