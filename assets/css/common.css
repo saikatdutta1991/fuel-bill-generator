@@ -9,8 +9,28 @@
 
 @font-face {
   font-family: "Thermal-Receipt";
-  src: url("../fonts/thermal-receipt/thermal-receipt.ttf")
-    format("truetype");
+  src: url("../fonts/thermal-receipt/thermal-receipt.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "F25_Bank_Printer";
+  src: url("../fonts/f25_bank_printer/F25_Bank_Printer.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Dot_Matrix";
+  src: url("../fonts/dot_matrix/DOTMATRI.TTF") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PIXEAB";
+  src: url("../fonts/pixel_arial_11/PIXEAB__.TTF") format("truetype");
   font-weight: normal;
   font-style: normal;
 }

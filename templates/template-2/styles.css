@@ -1,0 +1,74 @@
+.template-container {
+  width: 350px;
+  /* min-height: 768px; */
+  background-image: url(../../assets/images/textures/texture-2.jpeg);
+  background-repeat: round;
+  position: relative;
+  background-size: cover;
+}
+
+.zig-zag-top-bottom {
+  --m: conic-gradient(
+        from -45deg at bottom,
+        #0000,
+        #000 1deg 89deg,
+        #0000 90deg
+      )
+      bottom/5px 51% repeat-x,
+    conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) top /
+      5px 51% repeat-x;
+  -webkit-mask: var(--m);
+  mask: var(--m);
+}
+
+.template-content {
+  font-family: "Dot_Matirx";
+  color: #2c3692;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.sub-header {
+  text-align: center;
+  font-size: 14px;
+}
+
+.dashed-hr {
+  border: none;
+  border-top: 2px dashed #2c3692;
+  width: 100%;
+}
+
+.dotted-hr {
+  border: none;
+  border-top: 2px dotted #2c3692;
+  width: 100%;
+}
+
+.double-hr {
+  border: none;
+  border-top: 3px double #2c3692;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+table td:nth-child(2) {
+  text-align: center;
+}
+
+table td:last-child {
+  text-align: right;
+}
+
+table tr:nth-last-child(2) {
+  font-weight: bold;
+  font-size: 16px;
+}
