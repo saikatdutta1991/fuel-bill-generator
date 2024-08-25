@@ -90,7 +90,6 @@ function generate(template) {
   const data1 = { texture: getRadioValue("#section-paper-texture", "texture") };
   const data2 = { pumpLogo: getRadioValue("#section-pump-logo", "pumpLogo") };
   const data3 = getCheckedValues("#section-optional-fields");
-  console.log({ data3 });
   const data4 = getDataValues("#section-data");
   const data = { ...data1, ...data2, ...data3, ...data4 };
   template.renderData(data);
