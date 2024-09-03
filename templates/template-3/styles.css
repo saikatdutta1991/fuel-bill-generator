@@ -1,0 +1,105 @@
+.template-container {
+  width: 240px;
+  min-height: 730px;
+  background-image: url(../../assets/images/textures/texture-6.jpeg);
+  background-repeat: round;
+  position: relative;
+  background-size: cover;
+}
+
+.zig-zag-top-bottom {
+  --m: conic-gradient(
+        from -45deg at bottom,
+        #0000,
+        #000 1deg 89deg,
+        #0000 90deg
+      )
+      bottom/5px 51% repeat-x,
+    conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) top /
+      5px 51% repeat-x;
+  -webkit-mask: var(--m);
+  mask: var(--m);
+}
+
+.template-content {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px;
+  font-size: 10px;
+  -webkit-font-smoothing: antialiased; /* For WebKit browsers (Chrome, Safari) */
+  -moz-osx-font-smoothing: grayscale; /* For Firefox on macOS */
+  font-weight: bold;
+  line-height: normal;
+}
+
+.pump-logo {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.center {
+  text-align: center !important;
+}
+
+.header {
+  text-align: center;
+  /* font-size: 12px; */
+}
+
+table {
+  width: 100%;
+}
+
+table tbody tr td:nth-child(1) {
+  text-align: left;
+  /* display: inline-flex; */
+}
+
+table tbody tr td:nth-child(2) {
+  text-align: right;
+}
+
+.sale {
+  font-size: 16px;
+}
+
+.dotted-hr {
+  border: none;
+  border-top: 2px dotted;
+  width: 100%;
+}
+
+/* 
+
+.sub-header {
+  text-align: center;
+  font-size: 14px;
+}
+
+.dashed-hr {
+  border: none;
+  border-top: 2px dashed #2c3692;
+  width: 100%;
+}
+
+
+
+.double-hr {
+  border: none;
+  border-top: 3px double #2c3692;
+  width: 100%;
+}
+
+
+
+table td:nth-child(2) {
+  text-align: center;
+}
+
+table td:last-child {
+  text-align: right;
+}
+
+table tr:nth-last-child(2) {
+  font-weight: bold;
+  font-size: 16px;
+} */

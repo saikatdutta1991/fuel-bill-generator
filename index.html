@@ -21,16 +21,20 @@
             <div class="panel-heading">Select Your Template</div>
             <div class="panel-body">
               <label class="radio-inline"
-                ><input
-                  type="radio"
-                  name="template"
-                  value="0"
-                  checked
-                />Template 1</label
+                ><input type="radio" name="template" value="0" />Template
+                1</label
               >
               <label class="radio-inline"
                 ><input type="radio" name="template" value="1" />Template
                 2</label
+              >
+              <label class="radio-inline"
+                ><input
+                  type="radio"
+                  name="template"
+                  value="2"
+                  checked
+                />Template 3</label
               >
             </div>
           </div>
@@ -84,10 +88,12 @@
     <script src="templates/AbstractTemplate.js"></script>
     <script src="templates/template-1/Template1.js"></script>
     <script src="templates/template-2/Template2.js"></script>
+    <script src="templates/template-3/Template3.js"></script>
     <script>
       const templates = [
         new Template1("template-container"),
         new Template2("template-container"),
+        new Template3("template-container"),
       ];
       var templateIndex;
       var template;
@@ -106,6 +112,10 @@
         $("input[name=template]").change(async function () {
           await onTemplateSelected();
         });
+
+        // $(document).on("click", "input[name=texture]", async function () {
+        //   await onTemplateSelected();
+        // });
       });
 
       async function onInit() {
