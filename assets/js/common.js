@@ -57,9 +57,9 @@ function renderTemplateForm(template) {
     optionalFieldList.forEach((field) => {
       elem.append(`
         <label class="checkbox-inline">
-          <input type="checkbox" name="${field.id}" value="${field.value}" ${
-        field.checked ? "checked" : ""
-      }/>
+          <input class="optional-fields" type="checkbox" name="${
+            field.id
+          }" value="${field.value}" ${field.checked ? "checked" : ""}/>
           ${field.name}
         </label>
       `);
@@ -78,7 +78,7 @@ function renderTemplateForm(template) {
       elem.append(`
       <div class="form-group col-md-4">
         <label for="${field.id}">${field.name}</label>
-        <input type="text" class="form-control" name="${field.id}" value="${field.defaultValue}"/>
+        <input type="text" class="form-control text-input" name="${field.id}" value="${field.defaultValue}"/>
       </div>
       `);
     });

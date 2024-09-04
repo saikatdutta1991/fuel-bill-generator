@@ -120,6 +120,14 @@
         $(document).on("click", "input[name=pumpLogo]", async function () {
           generate(template);
         });
+
+        $(document).on("click", ".optional-fields", async function () {
+          generate(template);
+        });
+
+        $(document).on("keyup", ".text-input", async function () {
+          generate(template);
+        });
       });
 
       async function onInit() {
