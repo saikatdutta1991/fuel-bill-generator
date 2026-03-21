@@ -65,11 +65,24 @@
           <button type="button" class="btn btn-default" id="generate">
             Preview
           </button>
-          <button type="button" class="btn btn-default" disabled>
+          <button type="button" class="btn btn-default" id="download">
             Download
           </button>
         </div>
         <div class="col-md-4">
+          <div class="panel panel-default" style="margin-bottom:10px;">
+            <div class="panel-heading" style="padding:6px 10px;font-size:12px;">Surface</div>
+            <div class="panel-body" style="padding:6px 10px;">
+              <select id="surface-select" class="form-control input-sm">
+                <option value="surface-wooden-desk" selected>Wooden Desk</option>
+                <option value="surface-dark-wood">Dark Wood</option>
+                <option value="surface-white-tiles">White Tiles</option>
+                <option value="surface-beige-tiles">Beige Tiles</option>
+                <option value="surface-grey-marble">Grey Marble</option>
+                <option value="surface-black-granite">Black Granite</option>
+              </select>
+            </div>
+          </div>
           <input
             type="range"
             class="slider"
@@ -78,12 +91,13 @@
             max="100"
             value="100"
           />
-          <span id="template-container"></span>
+          <div id="template-container" class="surface-wooden-desk"></div>
         </div>
       </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="assets/js/common.js"></script>
     <script src="templates/AbstractTemplate.js"></script>
     <script src="templates/template-1/Template1.js"></script>
@@ -109,6 +123,10 @@
           generate(template);
         });
 
+        $("#download").on("click", function () {
+          downloadBill(template);
+        });
+
         $("input[name=template]").change(async function () {
           await onTemplateSelected();
         });
@@ -128,11 +146,32 @@
         $(document).on("keyup", ".text-input", async function () {
           generate(template);
         });
+
+        $("#surface-select").on("change", function () {
+          var el = $("#template-container");
+          el.removeClass("surface-wooden-desk surface-dark-wood surface-white-tiles surface-beige-tiles surface-grey-marble surface-black-granite");
+          el.addClass($(this).val());
+        });
       });
 
       async function onInit() {
+        // Select template from URL param (1-based for user, converted to 0-based)
+        const params = new URLSearchParams(window.location.search);
+        const tplParam = params.get("template");
+        if (tplParam !== null) {
+          const idx = parseInt(tplParam, 10) - 1;
+          if (idx >= 0 && idx < templates.length) {
+            $(`input[name=template][value="${idx}"]`).prop("checked", true);
+          }
+        }
+
         await onTemplateSelected();
         initZoomSlider();
+
+        // Apply remaining URL params after form is rendered
+        if (params.size > 0) {
+          applyUrlParams(template);
+        }
       }
     </script>
   </body>

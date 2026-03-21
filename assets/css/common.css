@@ -1,10 +1,93 @@
 #template-container {
-  background: grey;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  padding: 40px 25px;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 300px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Surface backgrounds for the preview area */
+#template-container.surface-wooden-desk {
+  background-color: #b5864e;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 18px,
+      rgba(0,0,0,0.04) 18px,
+      rgba(0,0,0,0.04) 20px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.03) 0px,
+      rgba(0,0,0,0.02) 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    linear-gradient(180deg, #c4965a 0%, #a87940 40%, #b5864e 60%, #9e7038 100%);
+}
+
+#template-container.surface-dark-wood {
+  background-color: #4a3728;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 22px,
+      rgba(0,0,0,0.06) 22px,
+      rgba(0,0,0,0.06) 24px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.02) 0px,
+      rgba(0,0,0,0.03) 2px,
+      transparent 2px,
+      transparent 5px
+    ),
+    linear-gradient(180deg, #5a4535 0%, #3d2b1e 50%, #4a3728 100%);
+}
+
+#template-container.surface-white-tiles {
+  background-color: #e8e8e8;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.08) 1px, transparent 1px),
+    linear-gradient(rgba(0,0,0,0.02) 0, rgba(0,0,0,0.02) 0);
+  background-size: 60px 60px, 60px 60px, 60px 60px;
+}
+
+#template-container.surface-grey-marble {
+  background-color: #c5c5c5;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(180,180,180,0.6) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(200,200,200,0.4) 0%, transparent 40%),
+    radial-gradient(ellipse at 60% 80%, rgba(160,160,160,0.5) 0%, transparent 45%),
+    linear-gradient(135deg, #d0d0d0 0%, #b8b8b8 25%, #c8c8c8 50%, #aaa 75%, #c0c0c0 100%);
+}
+
+#template-container.surface-black-granite {
+  background-color: #1a1a1a;
+  background-image:
+    radial-gradient(ellipse at 30% 40%, rgba(60,60,60,0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 70%, rgba(50,50,50,0.3) 0%, transparent 40%),
+    radial-gradient(circle at 50% 20%, rgba(80,80,80,0.15) 0%, transparent 30%),
+    repeating-radial-gradient(circle at 20% 60%, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 3px);
+}
+
+#template-container.surface-beige-tiles {
+  background-color: #d4c5a9;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px),
+    radial-gradient(ellipse at 50% 50%, rgba(200,180,140,0.3) 0%, transparent 70%);
+  background-size: 80px 80px, 80px 80px, 160px 160px;
+}
+
+/* Shadow on the receipt to make it look like it's resting on the surface */
+#template-container > * {
+  filter: drop-shadow(3px 4px 8px rgba(0, 0, 0, 0.45));
 }
 
 @font-face {
