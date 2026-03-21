@@ -35,6 +35,11 @@ Template HTML is fetched at runtime via `fetch()`, so a file server is required 
 - `assets/images/` — pump logos and paper texture backgrounds
 - `templates/templates.js` — unused/legacy template list (actual templates are instantiated in `index.html`)
 
+## Bulk URL Generator
+
+- `generate_urls.py` — Python script that generates prefilled bill URLs in bulk. Targets ~₹10,000/month (existing + new) for Apr 2025 – Mar 2026. Uses a pool of real Bengaluru pump stations, distributes amounts realistically, ensures rate × volume = amount consistency, and rotates templates/textures/surfaces.
+- `bill-generation-task.md` — Planning document with per-month existing totals, remaining targets, and generation rules (amount distribution, date spacing, vehicle number frequency, etc.).
+
 ## Adding a New Template
 
 1. Create `templates/template-N/` with `Template{N}.js`, `content.html`, `styles.css`

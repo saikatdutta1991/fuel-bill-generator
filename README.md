@@ -157,6 +157,26 @@ https://saikatdutta1991.github.io/fuel-bill-generator/?template=2&texture=5&name
 https://saikatdutta1991.github.io/fuel-bill-generator/?template=3&texture=3&pumpLogo=1&showGST=true&name=GOKUL%20FUEL%20POINT&subAddress=BANGALORE&address=No.%2036%2F1%2C%20Yelanahalli%20Beg&attendantName=Sendhil%20Kumar%20A&date=21-03-2026&time=11%3A36%3A02&product=Petrol&unitPrice=%24%20102.86&quantity=1.944%20Ltr&totalSale=%E2%82%B9%20200.00&netAmount=%E2%82%B9%20200.00&surface=grey-marble
 ```
 
+## Bulk URL Generator
+
+`generate_urls.py` is a Python script that batch-generates prefilled bill URLs for multiple months. It targets ~₹10,000 total per month (combining existing bills with newly generated ones) across Apr 2025 – Mar 2026.
+
+**Usage:**
+```bash
+python3 generate_urls.py
+```
+
+The script outputs ready-to-open URLs grouped by month. Each URL opens the generator with all fields pre-populated. Open the URL, then download the bill as PNG.
+
+**What it does:**
+- Picks realistic amounts (₹400–₹2,500 range) that sum to the monthly target
+- Ensures mathematical consistency (amount = rate × volume)
+- Spaces bill dates with minimum gaps, avoiding existing bill dates
+- Rotates across real Bengaluru pump stations (Indian Oil, HP, BPCL)
+- Randomly varies templates, textures, and surface backgrounds
+
+See `bill-generation-task.md` for the full planning document and per-month breakdown.
+
 ## Tech Stack
 
 - Vanilla JavaScript + jQuery 3.7.1
