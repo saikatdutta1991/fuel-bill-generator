@@ -61,26 +61,43 @@ MONTHS = [
 
 
 def pick_dates(existing_dates, max_day, num_bills):
-    """Pick dates with min 3-day gap from each other and min 2-day gap from existing."""
+    """Pick dates uniformly spread across 1..max_day, no overlap with existing, min 2-day gap from existing and 3-day gap between new."""
     occupied = set(existing_dates)
-    candidates = []
-    for d in range(1, max_day + 1):
-        if d not in occupied and all(abs(d - e) >= 2 for e in occupied):
+
+    # Divide month into num_bills equal zones and pick one date per zone
+    zone_size = max_day / num_bills
+    picked = []
+
+    for z in range(num_bills):
+        zone_start = int(z * zone_size) + 1
+        zone_end = int((z + 1) * zone_size)
+        zone_end = min(zone_end, max_day)
+
+        # Collect valid candidates in this zone
+        candidates = []
+        for d in range(zone_start, zone_end + 1):
+            if d in occupied:
+                continue
+            if any(abs(d - e) < 2 for e in occupied):
+                continue
+            if any(abs(d - p) < 3 for p in picked):
+                continue
             candidates.append(d)
 
-    picked = []
-    for c in candidates:
-        if all(abs(c - p) >= 3 for p in picked):
-            picked.append(c)
-            if len(picked) >= num_bills:
-                break
-
-    # If not enough, relax gap to 2 between new dates
-    if len(picked) < num_bills:
-        for c in candidates:
-            if c not in picked and all(abs(c - p) >= 2 for p in picked):
-                picked.append(c)
-                if len(picked) >= num_bills:
+        if candidates:
+            # Pick randomly within zone for natural variation
+            picked.append(random.choice(candidates))
+        else:
+            # Fallback: expand search to nearby dates outside zone
+            for d in range(max(1, zone_start - 2), min(max_day + 1, zone_end + 3)):
+                if d in occupied:
+                    continue
+                if any(abs(d - e) < 2 for e in occupied):
+                    continue
+                if any(abs(d - p) < 3 for p in picked):
+                    continue
+                if d not in picked:
+                    picked.append(d)
                     break
 
     picked.sort()
