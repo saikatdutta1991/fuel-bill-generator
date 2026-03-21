@@ -10,7 +10,8 @@ random.seed(2025)
 BASE_URL = "https://saikatdutta1991.github.io/fuel-bill-generator/"
 RATE = 102.86  # Bengaluru petrol price ₹/L (stable throughout 2025-26)
 VEHICLE_NO = "KA01MY2322"
-TARGET = 10000
+TARGET_MIN = 9950
+TARGET_MAX = 10100
 
 # ── Station Pool (real Bengaluru-style names) ──────────────────────────
 STATIONS = [
@@ -214,23 +215,25 @@ def build_url_t3(station, day, month, year, time_str, rate, vol, amt, texture, s
 
 # ── Main generation ───────────────────────────────────────────────────
 
-# Count total bills first to pick ~5% for vehicle number
+# Assign a random target per month (uniformly between 9950–10100)
 bill_plan = []
 for md in MONTHS:
-    needed = TARGET - md["existing"]
+    month_target = random.randint(TARGET_MIN, TARGET_MAX)
+    needed = month_target - md["existing"]
     if needed <= 0:
         continue
     num = 4 if needed <= 3500 else (5 if needed <= 6500 else 6)
-    bill_plan.append((md, num))
+    bill_plan.append((md, num, month_target))
 
-total_bills = sum(n for _, n in bill_plan)
+total_bills = sum(n for _, n, _ in bill_plan)
 num_vehicle = max(1, round(total_bills * 0.05))
 vehicle_indices = set(random.sample(range(total_bills), min(num_vehicle, total_bills)))
 
 bill_counter = 0
+summary = []
 
-for md, num_bills in bill_plan:
-    needed = TARGET - md["existing"]
+for md, num_bills, month_target in bill_plan:
+    needed = month_target - md["existing"]
     dates = pick_dates(md["dates"], md["days"], num_bills)
     if len(dates) < num_bills:
         num_bills = len(dates)
@@ -245,9 +248,9 @@ for md, num_bills in bill_plan:
         bills.append({"day": dates[i], "amount": amt, "volume": vol})
         trunc_sum += int(amt)
 
-    # Adjust last bill to hit target
+    # Adjust last bill to hit the randomized target
     month_total = md["existing"] + trunc_sum
-    diff = TARGET - month_total
+    diff = month_target - month_total
     if diff != 0:
         last = bills[-1]
         new_target = last["amount"] + diff
@@ -294,3 +297,18 @@ for md, num_bills in bill_plan:
         print(f"  {url}")
 
     print(f"\n  → Month total: {md['existing']} + {trunc_sum} = {month_total}")
+    summary.append((md["key"], md["existing"], trunc_sum, month_total))
+
+# ── Print summary table ───────────────────────────────────────────────
+print(f"\n\n{'='*80}")
+print("  SUMMARY")
+print(f"{'='*80}")
+print(f"\n  | {'Month':<8} | {'Existing':>10} | {'+ New':>10} | {'= Total':>10} |")
+print(f"  |{'-'*10}|{'-'*12}|{'-'*12}|{'-'*12}|")
+for key, ex, nw, tot in summary:
+    print(f"  | {key:<8} | {ex:>10,} | {nw:>10,} | {tot:>10,} |")
+grand_new = sum(nw for _, _, nw, _ in summary)
+print(f"\n  Total new bills generated: {bill_counter}")
+print(f"  Total new amount: ₹{grand_new:,}")
+veh_count = len([i for i in range(bill_counter) if i in vehicle_indices])
+print(f"  Bills with vehicle number: {veh_count} (~{veh_count*100//bill_counter}%)")

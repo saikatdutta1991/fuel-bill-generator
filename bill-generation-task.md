@@ -3,7 +3,7 @@ Petrol Bill Generation Plan (v2)
   Objective       
 
   Generate realistic Bengaluru petrol pump bills using https://github.com/saikatdutta1991/fuel-bill-generator live demo URLs
-   with prefilled params. Each month's total (existing + new) should reach ~₹10,000 (tolerance: +100 / -50).
+   with prefilled params. Each month's total (existing + new) should be uniformly distributed between ₹9,950–₹10,100 — no two months should land on the exact same total.
                                                                                                                             
   Months to Process (APR 25 → MAR 26, skip MAY)                                                                             
    
@@ -44,7 +44,7 @@ Petrol Bill Generation Plan (v2)
     - Most bills (60-70%): ₹800–₹1,600                                                                                      
     - A few (20-25%): ₹1,800–₹2,500   
     - Occasional top-up (10-15%): ₹400–₹700                                                                                 
-  - Sum of new bills for the month must hit the remaining target (±100/−50)
+  - Each month's total (existing + new) should be uniformly distributed between ₹9,950–₹10,100 (not always the same number)
                                                                                                                             
   Petrol Station Details                                                                                                    
   - Real Bengaluru pump names (HP, BPCL, Indian Oil — actual outlet names)                                                  
